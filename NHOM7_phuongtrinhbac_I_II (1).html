@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>NHÓM 7</title>
+</head>
+<body>
+	<div style="justify-content: center;
+		display: grid;
+		grid-template-columns: auto;">
+		Số hạng 1:
+		<input type="input" id="inp1"
+			//onchange="update_value()"
+			placeholder="0"
+			value="0">
+		Số hạng 2:
+		<input type="input" id="inp2"
+			//onchange="update_value()"
+			placeholder="0"
+			value="0">
+		Số hạng 3:
+		<input type="input" id="inp3"
+			//onchange="update_value()"
+			placeholder="0"
+			value="0">
+		<br>
+		<input type="button" value="Phương trình bậc nhất" onclick="PTBN()">
+		<br>
+		<input type="button" value="Phương trình bậc hai" onclick="PTBH()">
+		<p id="kq">Kết quả phương trình là: </p>
+		<p id="kq1"></p>
+		<p id="kq2"></p>	
+	</div>
+		<script type="text/javascript">
+			function PTBN(){
+				const tmp_inp1 = document.getElementById("inp1").value;
+				const tmp_inp2 = document.getElementById("inp2").value;
+				const kq = document.getElementById("kq");
+				if (isNaN(parseInt(tmp_inp1))||isNaN(parseInt(tmp_inp2))){
+					alert("Vui lòng nhập một số");
+				}else if ((tmp_inp1) == 0 && (tmp_inp2) == 0){
+					u = "Phương trình vô số nghiệm";
+         			kq.innerHTML = "Kết quả phương trình là: " + u;
+        		}else if ((tmp_inp1) != 0 && (tmp_inp2) == 0){
+           			u = "Phương trình có nghiệm";
+           			x = 0;
+           			kq.innerHTML = "Kết quả phương trình là: " + u;
+           			kq1.innerHTML = "x = " + x;
+        		}else if ((tmp_inp1) == 0 && (tmp_inp2) != 0){
+           			u = "Phương trình vô nghiệm";
+           			kq.innerHTML = "Kết quả phương trình là: " + u;
+       			}else{
+       				u = "Phương trình có 1 nghiệm"
+            		x = (-parseInt(tmp_inp2)/parseInt(tmp_inp1));
+            		kq.innerHTML = "Kết quả phương trình là: " + u;
+            		kq1.innerHTML = "x = " + x;
+				}
+			}
+			function PTBH(){
+       			const tmp_inp1 = document.getElementById("inp1").value;
+        		const tmp_inp2 = document.getElementById("inp2").value;
+        		const tmp_inp3 = document.getElementById("inp3").value;
+        		const kq = document.getElementById("kq");
+        		delta = parseInt(tmp_inp2)*parseInt(tmp_inp2) - 4*parseInt(tmp_inp1)*parseInt(tmp_inp3)
+       			if ((isNaN(parseInt(tmp_inp1))||isNaN(parseInt(tmp_inp2))||isNaN(parseInt(tmp_inp3)))){
+       				alert("Vui lòng nhập một số");
+        		}else if (delta < 0){
+        			u = "Phương trình vô nghiệm";
+            		kq.innerHTML = "Kết quả phương trình là: " + u;
+            	}else if (delta == 0){
+            		u = "Phương trình có nghiệm kép";
+               		x = (-parseInt(tmp_inp2)/(2*parseInt(tmp_inp1)));
+                	kq.innerHTML = "Kết quả phương trình là: " + u;
+                	kq1.innerHTML = "x1 = x2 = " + x;
+            	}else{
+                	u = "Phương trình có 2 nghiệm phân biệt:";
+                	a = ((-parseInt(tmp_inp2))+sqrt(delta))/(2*parseInt(tmp_inp1));
+                	b = ((-parseInt(tmp_inp2))+sqrt(delta))/(2*parseInt(tmp_inp1)); 
+                	kq.innerHTML = "Kết quả phương trình là: " + u;
+                	kq1.innerHTML = "x1 = " + a;
+                	kq2.innerHTML = "x2 = " + b;
+        		}
+    		}
+		</script>
+</body>
+</html>
